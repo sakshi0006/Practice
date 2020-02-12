@@ -1,0 +1,45 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+	
+	      String st=sc.next();
+	       permute(st,0);
+	}
+	public static void permute(String st,int i)
+	{
+	    if(i==st.length()){System.out.println(st);
+	    return;}
+	     for(int j=i;j<st.length();j++)
+	     {
+	        st= swap(st,i,j);//  Do 
+	         permute(st,i+1);// Recurse
+	        st= swap(st,i,j);// undo
+          // do-recurse-undo=Backtracking...
+	     }
+	}
+	public static String swap(String st,int i,int j){
+	    char ch[]=st.toCharArray();
+	    char s=ch[i];
+	    ch[i]=ch[j];
+	    ch[j]=s;
+	    return new String(ch);
+	}
+}
+//input : abc
+/*output :
+   abc
+   acb
+   bac
+   bca
+   cba
+   cab*/
