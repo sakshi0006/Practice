@@ -1,22 +1,25 @@
-import java.util.*;
+  import java.util.*;//Leetcode Accepted..
 import java.lang.*;
 import java.io.*;
-
-/* Name of the class has to be "Main" only if the class is public. */
-public class Main
-{
-    static char mat[][];static int n;
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
-		Scanner sc=new Scanner(System.in);
-	     n=sc.nextInt();
+class Solution {
+    static List<List<String>> list = new ArrayList();
+            static List<String> listInner;static char mat[][];static int n;
+    public List<List<String>> solveNQueens(int p) { n=p;list.clear();
 	    mat=new char[n][n];for(int i=0;i<n;i++){for(int j=0;j<n;j++){mat[i][j]='.';}}
-	    NQP(0);
+	    NQP(0);return list;
 	}
 	public static void NQP(int row)
 	{
-	    if(row==n){ for(int i=0;i<n;i++){for(int j=0;j<n;j++){System.out.print(mat[i][j]+" ");}System.out.println();}return;}
+	    if(row==n){ listInner=new ArrayList<String>();
+             for(int i=0;i<n;i++){
+                 String h=new String(mat[i]);//System.out.println(h);
+                       listInner.add(h);          
+                                 }
+            
+            list.add(listInner);
+            return;
+        
+        }
 	    //System.out.println("row"+row+" "+n);
 	     for(int j=0;j<n;j++)
 	     {//System.out.println(checkSafety(row,j));
